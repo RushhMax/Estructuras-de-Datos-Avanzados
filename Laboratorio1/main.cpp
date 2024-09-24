@@ -25,6 +25,13 @@ void sorted(vector<float> &v){
     cout<<" SORTED "<<endl;
 }
 
+void print(vector<float> &v){
+    for(int i=0; i<20; i++ ){
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+}
+
 void bubbleSort(vector<float> &v){ // O(n^2)
     for (int i = v.size() - 1; i > 0; i--){
         bool intercambio = false;
@@ -90,7 +97,7 @@ void shellSort(vector<float> &v){
     int n = v.size();
     for(int gap=n/2; gap>0; gap/=2){
         for(int i=gap; i<n; i++){
-            int temp = v.size();
+            float temp = v[i];
             int j;
             for( j = i; j>=gap && v[j-gap]>temp; j-=gap){
                 v[j] = v[j-gap];
@@ -98,7 +105,6 @@ void shellSort(vector<float> &v){
             v[j] = temp;
         }
     }
-
 }
 
 
@@ -199,68 +205,68 @@ int main(int argc, char* argv[]) {
 
         cout<<argv[nro]<<endl;
 
-        // cout<<" Heap Sort -> ";
-        // auto inicio = std::chrono::high_resolution_clock::now();
-        // heapSort(heap);
-        // auto fin = std::chrono::high_resolution_clock::now();    
-        // std::chrono::duration<double, milli> duracion = fin - inicio;
-        // std::cout << duracion.count() << " milisegundos";
-        // tiempos[1].push_back(duracion.count());
-        // sorted(heap);
-
-        // cout<<" Shell Sort -> ";
-        // inicio = std::chrono::high_resolution_clock::now();
-        // shellSort(shell);
-        // fin = std::chrono::high_resolution_clock::now();    
-        // duracion = fin - inicio;
-        // std::cout << duracion.count() << " milisegundos";
-        // tiempos[2].push_back(duracion.count());
-        // sorted(shell);
-        
-        // cout<<" Merge Sort -> ";
-        // inicio = std::chrono::high_resolution_clock::now();
-        // mergeSort(merge);
-        // fin = std::chrono::high_resolution_clock::now();    
-        // duracion = fin - inicio;
-        // std::cout << duracion.count() << " milisegundos";
-        // tiempos[3].push_back(duracion.count());
-        // sorted(merge);
-
-        // cout<<" Quick Sort -> ";
-        // inicio = std::chrono::high_resolution_clock::now();
-        // quickSort(quick, 0, quick.size() - 1);
-        // fin = std::chrono::high_resolution_clock::now();    
-        // duracion = fin - inicio;
-        // std::cout << duracion.count() << " milisegundos";
-        // tiempos[4].push_back(duracion.count());
-        // sorted(quick);
-
-        cout<<" Bubble Sort -> ";
+        cout<<" Heap Sort -> ";
         auto inicio = std::chrono::high_resolution_clock::now();
-        bubbleSort(bubble);
+        heapSort(heap);
         auto fin = std::chrono::high_resolution_clock::now();    
-        std::chrono::duration<double,  std::ratio<60>> duracion = fin - inicio;
+        std::chrono::duration<double, milli> duracion = fin - inicio;
         std::cout << duracion.count() << " milisegundos";
-        tiempos[5].push_back(duracion.count());
-        sorted(bubble);
+        tiempos[1].push_back(duracion.count());
+        sorted(heap);
 
-        cout<<" Insertion Sort -> ";
+        cout<<" Shell Sort -> ";
         inicio = std::chrono::high_resolution_clock::now();
-        insertionSort(insertion);
+        shellSort(shell);
         fin = std::chrono::high_resolution_clock::now();    
         duracion = fin - inicio;
         std::cout << duracion.count() << " milisegundos";
-        tiempos[6].push_back(duracion.count());
-        sorted(insertion);
-
-        cout<<" Selection Sort -> ";
+        tiempos[2].push_back(duracion.count());
+        sorted(shell);
+        
+        cout<<" Merge Sort -> ";
         inicio = std::chrono::high_resolution_clock::now();
-        selectionSort(selection);
+        mergeSort(merge);
         fin = std::chrono::high_resolution_clock::now();    
         duracion = fin - inicio;
         std::cout << duracion.count() << " milisegundos";
-        tiempos[7].push_back(duracion.count());
-        sorted(selection);
+        tiempos[3].push_back(duracion.count());
+        sorted(merge);
+
+        cout<<" Quick Sort -> ";
+        inicio = std::chrono::high_resolution_clock::now();
+        quickSort(quick, 0, quick.size() - 1);
+        fin = std::chrono::high_resolution_clock::now();    
+        duracion = fin - inicio;
+        std::cout << duracion.count() << " milisegundos";
+        tiempos[4].push_back(duracion.count());
+        sorted(quick);
+
+        // cout<<" Bubble Sort -> ";
+        // auto inicio = std::chrono::high_resolution_clock::now();
+        // bubbleSort(bubble);
+        // auto fin = std::chrono::high_resolution_clock::now();    
+        // std::chrono::duration<double,  std::ratio<60>> duracion = fin - inicio;
+        // std::cout << duracion.count() << " milisegundos";
+        // tiempos[5].push_back(duracion.count());
+        // sorted(bubble);
+
+        // cout<<" Insertion Sort -> ";
+        // inicio = std::chrono::high_resolution_clock::now();
+        // insertionSort(insertion);
+        // fin = std::chrono::high_resolution_clock::now();    
+        // duracion = fin - inicio;
+        // std::cout << duracion.count() << " milisegundos";
+        // tiempos[6].push_back(duracion.count());
+        // sorted(insertion);
+
+        // cout<<" Selection Sort -> ";
+        // inicio = std::chrono::high_resolution_clock::now();
+        // selectionSort(selection);
+        // fin = std::chrono::high_resolution_clock::now();    
+        // duracion = fin - inicio;
+        // std::cout << duracion.count() << " milisegundos";
+        // tiempos[7].push_back(duracion.count());
+        // sorted(selection);
         nro++;
     }
 
