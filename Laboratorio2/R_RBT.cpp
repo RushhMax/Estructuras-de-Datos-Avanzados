@@ -286,6 +286,20 @@ class RedBlack_Tree{
             return nullptr;
         }
 
+        int FindCompares(T D){
+            if (!m_pRoot)
+                return 0;
+            Nodo<T> *p_tmp = m_pRoot;
+            int cont = 0;
+            while (p_tmp){
+                if (p_tmp->m_Dato == D)
+                    return cont;
+                p_tmp = p_tmp->m_pSon[p_tmp->m_Dato < D];
+                cont++;
+            }
+            return 0;
+        }
+
         Nodo<T> *Minimun(RedBlack_Tree<T> y){
             if (!y.m_pRoot)
                 return NULL;
