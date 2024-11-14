@@ -1,0 +1,17 @@
+graph T {
+chicago;
+chicago -- NW_denver;
+NW_denver;
+chicago -- NE_toronto;
+NE_toronto;
+NE_toronto -- SE_buffalo;
+SE_buffalo;
+chicago -- SW_omaha;
+SW_omaha;
+chicago -- SE_mobile;
+SE_mobile;
+SE_mobile -- NE_atlanta;
+NE_atlanta;
+SE_mobile -- SE_miami;
+SE_miami;
+}

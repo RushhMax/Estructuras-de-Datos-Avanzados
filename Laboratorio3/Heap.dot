@@ -1,0 +1,7 @@
+digraph G {
+label= "Binomial Heap";
+node [shape = record];
+B[label = "{ {Grado: 1} | <f1> B} "];
+B -> C;
+C[label = "{ {Grado: 0} | <f1> C} "];
+}
